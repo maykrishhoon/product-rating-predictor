@@ -2,68 +2,78 @@
 E-commerce platforms receive thousands of reviews daily. Manually reading them to assign a star rating is impossible. The goal of this project was to build an AI that can read text and predict a numeric rating (1-5).
 
 
-🗣️ Product Review Analysis (NLP)
+🌟 Product Rating Predictor
 
-A Natural Language Processing (NLP) project that analyzes customer reviews to determine sentiment and extract key topics.
+A Machine Learning project that predicts the star rating (1-5) of a product based purely on the text of the customer review.
 
-🎯 Project Goal
+📖 Overview
 
-To automate the process of reading reviews. Instead of manually reading 1,000 comments, this tool automatically:
-
-Classifies Sentiment: Tells us if a review is Positive, Negative, or Neutral.
-
-Extracts Keywords: Identifies what people are talking about (e.g., "battery", "screen", "price").
+This project uses Natural Language Processing (NLP) to analyze the sentiment of text reviews and a Linear Regression model to predict a numerical rating. It was built to understand how computers interpret human language and convert subjective opinions into quantitative data.
 
 🛠️ Tech Stack
 
-Python
+Language: Python 3.9+
 
-TextBlob: For calculating sentiment polarity (identifying emotions).
+Libraries: Pandas, Scikit-Learn, Numpy
 
-Scikit-Learn: Used CountVectorizer to extract keywords and remove stop-words.
+Technique: TF-IDF (Term Frequency-Inverse Document Frequency) for vectorization.
 
-Pandas & Matplotlib: For data management and visualization.
+⚙️ How It Works
 
-🧠 How It Works
+Data Collection: Uses a dataset of product reviews and their associated ratings.
 
-Input: Raw text reviews.
+Preprocessing: * Converts text to lowercase.
 
-Sentiment Engine: TextBlob scans the text for adjectives.
+Removes "stop words" (common words like 'the', 'and', 'is' that don't carry sentiment).
 
-"Great", "Love" → Positive Score (+1)
+Vectorizes text using TF-IDF.
 
-"Terrible", "Broken" → Negative Score (-1)
+Training: Fits a Linear Regression model to find the correlation between specific words and high/low ratings.
 
-Keyword Extraction: The script removes common words ("the", "is") and counts the remaining nouns/verbs to find common complaints or praises.
-
-📊 Sample Output
-
-Review
-
-Sentiment
-
-"The battery life is terrible."
-
-Negative
-
-"I absolutely love this phone!"
-
-Positive
-
-Top Keywords: battery, price, quality.
+Prediction: The model accepts new text input and outputs a predicted score (e.g., 4.2 stars).
 
 🚀 How to Run
 
-Clone the repository.
+Clone the repository:
 
-Install libraries:
+git clone
 
-pip install pandas matplotlib textblob scikit-learn
+
+Install dependencies:
+
+pip install pandas scikit-learn
 
 
 Run the script:
 
-rating_pridictor.py
+rating_predictor.py
+
+
+📊 Example Results
+
+Input Review
+
+Predicted Rating
+
+"I absolutely loved this product!"
+
+4.9 / 5.0
+
+"It is okay, maybe a bit expensive."
+
+3.1 / 5.0
+
+"Total garbage, do not buy."
+
+1.2 / 5.0
+
+🔮 Future Improvements
+
+Implement a Random Forest Regressor for potentially better accuracy.
+
+Train on a larger real-world dataset (like the Amazon Reviews dataset).
+
+Deploy as a simple web app using Streamlit.
 
 
 Created by KRISH as part of the Indikraft Internship.
